@@ -64,12 +64,16 @@ function App() {
   return (
     <div className="App">
       <h1>CRUD App</h1>
+      <div className='form__container'>
       <UsersForm 
         createNewUser={createNewUser}
         updateInfo={updateInfo}
         updateUsers={updateUsers}
         setupdateInfo={setupdateInfo}
       />
+      </div>
+
+      <div className='cards__container'>
       {
         users?.map( user =>(
           <UserCard 
@@ -80,6 +84,8 @@ function App() {
           />
         ))
       }
+      </div>
+      
 
       
     </div>
