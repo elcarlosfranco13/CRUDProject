@@ -9,7 +9,7 @@ const defaultValues={
   birthday:""
 }
 
-const UsersForm = ({createNewUser,updateInfo,updateUsers,setupdateInfo}) => {
+const UsersForm = ({createNewUser,updateInfo,updateUsers,setupdateInfo,setDisabledForm}) => {
 
 
   const {handleSubmit,reset,register}= useForm()
@@ -30,6 +30,11 @@ const UsersForm = ({createNewUser,updateInfo,updateUsers,setupdateInfo}) => {
       createNewUser(data)
     }
     reset(defaultValues)
+    setDisabledForm(true)
+  }
+  const handleCloseForm =() =>{
+    setDisabledForm(true)
+
   }
 
   
@@ -37,7 +42,7 @@ const UsersForm = ({createNewUser,updateInfo,updateUsers,setupdateInfo}) => {
 
   return (
       <form className='form' onSubmit={handleSubmit(submit)}>
-        <i className="form__close fa-regular fa-circle-xmark"></i>
+        <i onClick={handleCloseForm} className="form__close fa-regular fa-circle-xmark"></i>
         <h2 className='form__title'>{updateInfo ? "Update user" : "New user"}</h2>
         <div className='form__div'>
           <label className='form__label' htmlFor="email">Email</label>
@@ -45,15 +50,15 @@ const UsersForm = ({createNewUser,updateInfo,updateUsers,setupdateInfo}) => {
         </div>
         <div className='form__div'>
           <label className='form__label' htmlFor="password">Password</label>
-          <input className='form__input'placeholder='' type="password" id='password' {...register("password")}/>
+          <input className='form__input'placeholder='********' type="password" id='password' {...register("password")}/>
         </div>
         <div className='form__div'>
           <label className='form__label' htmlFor="first_name">Name</label>
-          <input className='form__input'placeholder='' type="text" id='first_name' {...register("first_name")}/>
+          <input className='form__input'placeholder='Enter your first name' type="text" id='first_name' {...register("first_name")}/>
         </div>
         <div className='form__div'>
           <label className='form__label' htmlFor="last_name">Last name</label>
-          <input className='form__input'placeholder='' type="text" id='last_name' {...register("last_name")}/>
+          <input className='form__input'placeholder='Enter your last name' type="text" id='last_name' {...register("last_name")}/>
         </div>
         <div className='form__div'>
           <label className='form__label' htmlFor="birthday">Birthday</label>

@@ -1,9 +1,10 @@
 import React from "react";
 import "./styles/userCard.css"
 
-const UserCard = ({ user, deleteUser, setupdateInfo }) => {
+const UserCard = ({ user, deleteUser, setupdateInfo,setDisabledForm}) => {
   const handleEdit = () => {
     setupdateInfo(user);
+    setDisabledForm(false)
   };
 
   return (

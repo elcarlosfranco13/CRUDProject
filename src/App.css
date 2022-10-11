@@ -1,3 +1,8 @@
+.App {
+  padding-bottom: 60px;
+  background-color: #CC7952;
+}
+
 .cards__container{
   display: flex;
   gap: 20px;
@@ -15,6 +20,44 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 1;
+}
 
+.disable__form{
+  display: none;
+}
+.app__container-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #943D2C;
+}
+.app__title{
+  color:navajowhite
+}
+.app__btn{
+  width: 100%;
+  max-width: 130px;
+  padding: 10px;
+  background-color: navajowhite;
+  border-radius: 3px;
+  color: #d85d5d;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: filter 100ms ease;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  font-weight: bold;
+}
+.app__btn:hover{
+  transform: scale(1.03);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  box-shadow: 0 0 10px #0005;
 
 }

@@ -10,6 +10,7 @@ function App() {
 
   const [users, setUsers] = useState()
   const [updateInfo, setupdateInfo] = useState()
+  const [disabledForm, setDisabledForm] = useState(true)
 
 
 // getAllusers nos trae la informacion
@@ -48,7 +49,7 @@ function App() {
     })
     .catch(err=>console.log(err))  
   }
-
+// Funcion para editar un usuario existente
   const updateUsers = (id, data) =>  {
     const URL = `${baseURL}/users/${id}/`
     axios.patch(URL, data)
@@ -59,17 +60,24 @@ function App() {
     .catch(err=> console.log(err))
   }
   
-  
+  const handleOpenForm =() =>{
+    setDisabledForm(false)
+  }
 
   return (
     <div className="App">
-      <h1>CRUD App</h1>
-      <div className='form__container'>
+      <div className='app__container-title'>
+      <h1 className='app__title'>CRUD App</h1>
+      <button onClick={handleOpenForm} className='app__btn'>+ User</button>
+      </div>
+
+      <div className={`form__container ${disabledForm && "disable__form"}` }>
       <UsersForm 
         createNewUser={createNewUser}
         updateInfo={updateInfo}
         updateUsers={updateUsers}
         setupdateInfo={setupdateInfo}
+        setDisabledForm={setDisabledForm}
       />
       </div>
 
@@ -81,6 +89,7 @@ function App() {
           user={user}
           deleteUser={deleteUser}
           setupdateInfo={setupdateInfo}
+          setDisabledForm={setDisabledForm}
           />
         ))
       }

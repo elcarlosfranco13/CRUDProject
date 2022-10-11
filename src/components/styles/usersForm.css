@@ -5,7 +5,7 @@
   box-shadow: 0 0 10px #0007;
   position: relative;
   width: 100%;
-  max-width: 270px;
+  max-width: 350px;
 }
 .form__close{
   position: absolute;
@@ -45,4 +45,19 @@
   border-radius: 5px;
   border: 1px solid #cccc;
   font-weight: 300;
+}
+.form__btn{
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #d85d5d;
+  color: white;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: filter 100ms ease;
+}
+
+.form__btn:hover{
+  filter: brightness(1.1);
+  transition: filter 100ms ease;
 }
